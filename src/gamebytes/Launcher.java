@@ -382,6 +382,11 @@ public class Launcher extends javax.swing.JFrame {
     
     private void gameMenuActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_gameMenuActionPerformed
         
+        if (!loggedIn) {
+            JOptionPane.showMessageDialog(this, "You must be logged in to play a game.");
+            return;
+        }
+
         if(evt.getSource() == game1){
             this.setVisible(false);
             java.awt.EventQueue.invokeLater(new Runnable() {
