@@ -30,7 +30,6 @@ public class HighScoresFrame extends JFrame {
         
         // Get and display high scores
         List<Account.ScoreEntry> highScores = Account.getHighScores(gameName, accounts);
-        System.out.println("High Scores: " + highScores);
         // Create a panel for scores with alternating background colors
         JPanel scoresPanel = new JPanel();
         scoresPanel.setLayout(new BoxLayout(scoresPanel, BoxLayout.Y_AXIS));
@@ -47,6 +46,7 @@ public class HighScoresFrame extends JFrame {
             
             // Add username and score
             JLabel scoreLabel = new JLabel(entry.username + ": " + entry.score);
+            System.out.println("Username: " + entry.username + ", Score: " + entry.score);
             scoreLabel.setFont(new Font("Arial", Font.PLAIN, 14));
             scoreRow.add(scoreLabel);
             

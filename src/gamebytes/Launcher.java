@@ -501,7 +501,7 @@ public class Launcher extends javax.swing.JFrame {
     }//GEN-LAST:event_loginBtnActionPerformed
 
     private ArrayList<Account> getAccounts() throws IOException, ClassNotFoundException {
-        ArrayList<Account> accounts = dataIO.LoadAccountData();
+        ArrayList<Account> accounts = Account.allAccounts;
         return accounts;
 
     } 

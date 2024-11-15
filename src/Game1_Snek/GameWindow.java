@@ -11,6 +11,7 @@ import java.io.IOException;
 import java.io.InputStream;
 import gamebytes.Launcher;
 import gamebytes.Account;
+import gamebytes.DataIO;
 import Game1_Snek.ScorePanel;
 
 public class GameWindow {
@@ -36,8 +37,21 @@ public class GameWindow {
             public void windowClosing(WindowEvent e) {
                 launcher.setVisible(true);
                 System.out.println("game1 closed.");
+
                 scorePanel.updateScore(scorePanel.getScore());
+                System.out.println("Final Score for Snek: " + scorePanel.getScore());
+
+                try {
+                    DataIO dataIO = new DataIO();
+                    dataIO.SaveData(Account.allAccounts); // Assuming Account.accounts is your list of current accounts
+                    System.out.println("Account data saved successfully.");
+                } catch (IOException ex) {
+                    System.err.println("Error saving account data: " + ex.getMessage());
+                    ex.printStackTrace();
+                }
             }
+
+            
         });
         
         try {

@@ -8,6 +8,9 @@ package gamebytes;
 import java.io.Serializable;
 import java.util.HashSet;
 import java.util.List;
+
+import javax.xml.crypto.Data;
+
 import java.util.HashMap;
 import java.util.ArrayList;
 import java.util.Collections;
@@ -20,12 +23,12 @@ public class Account implements Serializable {
     private String username;
     private char[] password; 
     public static HashSet<String> allUsernames = new HashSet<>();
+    public static ArrayList<Account> allAccounts = new ArrayList<>();
     private HashMap<String, Integer> gameScores = new HashMap<>();
 
     public Account(String username, char[] password) throws Exception{
         if(!allUsernames.add(username))
             throw new Exception();
-        
         this.username = username;
         this.password = password;
         this.gameScores = new HashMap<>();
@@ -35,6 +38,10 @@ public class Account implements Serializable {
 
         System.out.println("Score for " + username + " for snek: " + gameScores.get("Snek"));
         System.out.println("Score for " + username + " for wordguessr: " + gameScores.get("WordGuessr"));
+
+        
+        allAccounts.add(this);
+
     }
 
     public void updateGameScore(String gameName, int score) {
@@ -47,15 +54,17 @@ public class Account implements Serializable {
     }
 
     public int getGameScore(String gameName) {
-        return gameScores.get(gameName);
+        int gameScore = gameScores.get(gameName);
+        System.out.println("Game Score: " + gameScore);
+        return gameScore;
     }
 
     public static List<ScoreEntry> getHighScores(String gameName, List<Account> accounts) {
         List<ScoreEntry> scores = new ArrayList<>();
         
         for (Account acc : accounts) {
-            scores.add(new ScoreEntry(acc.getUsername(), acc.getGameScore(gameName)));
-            System.out.println("High Score for " + acc.getUsername() + ": " + acc.getGameScore(gameName));
+            scores.add(new ScoreEntry(acc.getUsername(), acc.gameScores.get(gameName)));
+            System.out.println("High Score for " + acc.getUsername() + ": " + acc.gameScores.get(gameName));
         }
         
         // Sort by score in descending order

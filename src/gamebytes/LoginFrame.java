@@ -361,14 +361,14 @@ public class LoginFrame extends javax.swing.JFrame {
                 JOptionPane.showMessageDialog(rootPane, "Username was already taken.");
                 return;
             }
-            accounts.add(account);
+            Account.allAccounts.add(account);
             JOptionPane.showMessageDialog(rootPane, "Account has been successfully added.");
             return;
         }
         
         //search for matching username in accounts then check if it is paired with the correct password
         if(loginSelected){
-            for(Account acc: accounts){
+            for(Account acc: Account.allAccounts){
                 if(acc.getUsername().equals(username))
                     if(Arrays.equals(acc.getPassword(), pword)){
                         //switch frames
@@ -409,13 +409,11 @@ public class LoginFrame extends javax.swing.JFrame {
     }//GEN-LAST:event_submitButtonMouseExited
 
     private void formWindowOpened(java.awt.event.WindowEvent evt) {//GEN-FIRST:event_formWindowOpened
-        //load lots from file
         System.out.println("LoginFrame --- Loading");
 //        Account.printUsernames();
 //        printUsernames();
-        try{
-            //Lot transfer to corresponding blocks + update hashset            
-            accounts = accountsData.LoadAccountData();
+        try{           
+            Account.allAccounts = accountsData.LoadAccountData();
         } catch(IOException ioe){
             JOptionPane.showMessageDialog(rootPane, ioe);
         } catch(ClassNotFoundException cnfe){
@@ -477,14 +475,14 @@ public class LoginFrame extends javax.swing.JFrame {
 //        Account.printUsernames();
 //        printUsernames();
         try{
-            accountsData.SaveData(accounts);
+            accountsData.SaveData(Account.allAccounts);
         } catch(IOException ioe){
             JOptionPane.showMessageDialog(rootPane, ioe);
         }
     }
 
     public ArrayList<Account> getAccounts() {
-        return accounts;
+        return Account.allAccounts;
     }
     // Variables declaration - do not modify//GEN-BEGIN:variables
     private javax.swing.JLabel jLabel3;

@@ -7,6 +7,7 @@ import java.awt.Component;
 import java.awt.event.KeyEvent;
 import java.awt.event.WindowAdapter;
 import java.awt.event.WindowEvent;
+import java.io.IOException;
 import java.nio.file.Files;
 import java.nio.file.Paths;
 import java.util.ArrayList;
@@ -16,6 +17,7 @@ import javax.swing.JLabel;
 import javax.swing.JOptionPane;
 import javax.swing.JPanel;
 import gamebytes.Account;
+import gamebytes.DataIO;
 
 public class WordGuessr extends javax.swing.JFrame {
     ImageIcon appImg = new ImageIcon("src/Game2_WordGuessr/logo.png");
@@ -42,6 +44,15 @@ public class WordGuessr extends javax.swing.JFrame {
             public void windowClosing(WindowEvent e) {
                 launcher.setVisible(true);
                 System.out.println("game2 closed.");
+
+                try {
+                    DataIO dataIO = new DataIO();
+                    dataIO.SaveData(Account.allAccounts); // Assuming Account.accounts is your list of current accounts
+                    System.out.println("Account data saved successfully.");
+                } catch (IOException ex) {
+                    System.err.println("Error saving account data: " + ex.getMessage());
+                    ex.printStackTrace();
+                }
             }
         });
         
