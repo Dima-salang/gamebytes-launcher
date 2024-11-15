@@ -361,7 +361,6 @@ public class LoginFrame extends javax.swing.JFrame {
                 JOptionPane.showMessageDialog(rootPane, "Username was already taken.");
                 return;
             }
-            Account.allAccounts.add(account);
             JOptionPane.showMessageDialog(rootPane, "Account has been successfully added.");
             return;
         }

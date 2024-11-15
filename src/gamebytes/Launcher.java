@@ -45,7 +45,7 @@ public class Launcher extends javax.swing.JFrame {
             loginBtn.setText("Play");
 
             this.acc = acc;
-            accountDetailLabel.setText(acc.getUsername());
+            accountDetailLabel.setText("Account: " + acc.getUsername());
         }
     }
 
@@ -220,9 +220,6 @@ public class Launcher extends javax.swing.JFrame {
         defaultBG = new javax.swing.JMenuItem();
         timeLabel = new javax.swing.JLabel();
         dateLabel = new javax.swing.JLabel();
-        guestBtn = new javax.swing.JButton();
-        jPanel2 = new javax.swing.JPanel();
-        jLabel6 = new javax.swing.JLabel();
         jLabel7 = new javax.swing.JLabel();
         loginBtn = new javax.swing.JButton();
         logoLabel = new javax.swing.JLabel();
@@ -234,14 +231,9 @@ public class Launcher extends javax.swing.JFrame {
         game3 = new javax.swing.JMenuItem();
         jSeparator1 = new javax.swing.JPopupMenu.Separator();
         exit = new javax.swing.JMenuItem();
-        editMenu = new javax.swing.JMenu();
-        addPlayer = new javax.swing.JMenuItem();
-        delPlayer = new javax.swing.JMenuItem();
-        viewPlayer = new javax.swing.JMenuItem();
         highScores = new javax.swing.JMenu();
         game1_hs = new javax.swing.JMenuItem();
         game2_hs = new javax.swing.JMenuItem();
-        game3_hs = new javax.swing.JMenuItem();
         about = new javax.swing.JMenu();
         aboutUs = new javax.swing.JMenuItem();
 
@@ -267,34 +259,6 @@ public class Launcher extends javax.swing.JFrame {
 
         dateLabel.setForeground(new java.awt.Color(255, 255, 255));
         dateLabel.setText("date");
-
-        guestBtn.setText("Guest");
-        guestBtn.addActionListener(new java.awt.event.ActionListener() {
-            public void actionPerformed(java.awt.event.ActionEvent evt) {
-                guestBtnActionPerformed(evt);
-            }
-        });
-
-        jPanel2.setBorder(javax.swing.BorderFactory.createEtchedBorder());
-
-        jLabel6.setText("*soundtrack player? +timer");
-
-        javax.swing.GroupLayout jPanel2Layout = new javax.swing.GroupLayout(jPanel2);
-        jPanel2.setLayout(jPanel2Layout);
-        jPanel2Layout.setHorizontalGroup(
-            jPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGroup(jPanel2Layout.createSequentialGroup()
-                .addContainerGap()
-                .addComponent(jLabel6)
-                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
-        );
-        jPanel2Layout.setVerticalGroup(
-            jPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, jPanel2Layout.createSequentialGroup()
-                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                .addComponent(jLabel6)
-                .addGap(41, 41, 41))
-        );
 
         loginBtn.setText("Login/Play");
         loginBtn.addActionListener(new java.awt.event.ActionListener() {
@@ -344,19 +308,6 @@ public class Launcher extends javax.swing.JFrame {
 
         jMenuBar1.add(game);
 
-        editMenu.setText("Edit");
-
-        addPlayer.setText("Add Player");
-        editMenu.add(addPlayer);
-
-        delPlayer.setText("Delete Player");
-        editMenu.add(delPlayer);
-
-        viewPlayer.setText("View Players");
-        editMenu.add(viewPlayer);
-
-        jMenuBar1.add(editMenu);
-
         highScores.setText("High Scores");
 
         game1_hs.setText("Snek");
@@ -375,12 +326,14 @@ public class Launcher extends javax.swing.JFrame {
         });
         highScores.add(game2_hs);
 
-        game3_hs.setText("Memory Game");
-        highScores.add(game3_hs);
-
         jMenuBar1.add(highScores);
 
         about.setText("About");
+        about.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                aboutActionPerformed(evt);
+            }
+        });
 
         aboutUs.setText("About Us");
         about.add(aboutUs);
@@ -403,19 +356,15 @@ public class Launcher extends javax.swing.JFrame {
                         .addGap(195, 195, 195))
                     .addGroup(layout.createSequentialGroup()
                         .addComponent(dateLabel)
-                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                        .addComponent(accountDetailLabel)
-                        .addGap(224, 224, 224))))
+                        .addGap(224, 1056, Short.MAX_VALUE))))
             .addGroup(layout.createSequentialGroup()
                 .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
                 .addComponent(logoLabel, javax.swing.GroupLayout.PREFERRED_SIZE, 303, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
             .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, layout.createSequentialGroup()
-                .addContainerGap(417, Short.MAX_VALUE)
-                .addComponent(jPanel2, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addGap(283, 283, 283)
+                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                    .addComponent(guestBtn, javax.swing.GroupLayout.PREFERRED_SIZE, 124, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addComponent(accountDetailLabel)
                     .addComponent(loginBtn, javax.swing.GroupLayout.PREFERRED_SIZE, 124, javax.swing.GroupLayout.PREFERRED_SIZE))
                 .addGap(84, 84, 84))
         );
@@ -426,22 +375,16 @@ public class Launcher extends javax.swing.JFrame {
                     .addGroup(layout.createSequentialGroup()
                         .addGap(111, 111, 111)
                         .addComponent(logoLabel, javax.swing.GroupLayout.PREFERRED_SIZE, 221, javax.swing.GroupLayout.PREFERRED_SIZE)
-                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
-                        .addComponent(jPanel2, javax.swing.GroupLayout.PREFERRED_SIZE, 39, javax.swing.GroupLayout.PREFERRED_SIZE)
-                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED, 208, Short.MAX_VALUE)
+                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 260, Short.MAX_VALUE)
                         .addComponent(timeLabel)
                         .addGap(2, 2, 2)
-                        .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                            .addComponent(dateLabel)
-                            .addComponent(accountDetailLabel)))
+                        .addComponent(dateLabel))
                     .addGroup(layout.createSequentialGroup()
-                        .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                        .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
-                            .addGroup(layout.createSequentialGroup()
-                                .addComponent(guestBtn, javax.swing.GroupLayout.PREFERRED_SIZE, 39, javax.swing.GroupLayout.PREFERRED_SIZE)
-                                .addGap(42, 42, 42))
-                            .addComponent(loginBtn, javax.swing.GroupLayout.PREFERRED_SIZE, 39, javax.swing.GroupLayout.PREFERRED_SIZE))
-                        .addGap(82, 82, 82)
+                        .addContainerGap(505, Short.MAX_VALUE)
+                        .addComponent(loginBtn, javax.swing.GroupLayout.PREFERRED_SIZE, 39, javax.swing.GroupLayout.PREFERRED_SIZE)
+                        .addGap(31, 31, 31)
+                        .addComponent(accountDetailLabel)
+                        .addGap(35, 35, 35)
                         .addComponent(jLabel7)))
                 .addContainerGap())
         );
@@ -452,6 +395,7 @@ public class Launcher extends javax.swing.JFrame {
     
     
     private void gameMenuActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_gameMenuActionPerformed
+        
         if(evt.getSource() == game1){
             this.setVisible(false);
             java.awt.EventQueue.invokeLater(new Runnable() {
@@ -484,10 +428,6 @@ public class Launcher extends javax.swing.JFrame {
     private void formWindowClosing(java.awt.event.WindowEvent evt) {//GEN-FIRST:event_formWindowClosing
         System.out.println("main exiting.");
     }//GEN-LAST:event_formWindowClosing
-
-    private void guestBtnActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_guestBtnActionPerformed
-        game.doClick();
-    }//GEN-LAST:event_guestBtnActionPerformed
 
     private void loginBtnActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_loginBtnActionPerformed
         if (loggedIn) {
@@ -524,6 +464,10 @@ public class Launcher extends javax.swing.JFrame {
             System.out.println(e);
         }
     }//GEN-LAST:event_game2_hsActionPerformed
+
+    private void aboutActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_aboutActionPerformed
+        
+    }//GEN-LAST:event_aboutActionPerformed
 
     /**
      * @param args the command line arguments
@@ -564,12 +508,9 @@ public class Launcher extends javax.swing.JFrame {
     private javax.swing.JMenu about;
     private javax.swing.JMenuItem aboutUs;
     private javax.swing.JLabel accountDetailLabel;
-    private javax.swing.JMenuItem addPlayer;
     private javax.swing.JMenu changeBG;
     private javax.swing.JLabel dateLabel;
     private javax.swing.JMenuItem defaultBG;
-    private javax.swing.JMenuItem delPlayer;
-    private javax.swing.JMenu editMenu;
     private javax.swing.JMenuItem exit;
     private javax.swing.JMenu game;
     private javax.swing.JMenuItem game1;
@@ -577,19 +518,14 @@ public class Launcher extends javax.swing.JFrame {
     private javax.swing.JMenuItem game2;
     private javax.swing.JMenuItem game2_hs;
     private javax.swing.JMenuItem game3;
-    private javax.swing.JMenuItem game3_hs;
-    private javax.swing.JButton guestBtn;
     private javax.swing.JMenu highScores;
-    private javax.swing.JLabel jLabel6;
     private javax.swing.JLabel jLabel7;
     private javax.swing.JMenuBar jMenuBar1;
-    private javax.swing.JPanel jPanel2;
     private javax.swing.JPopupMenu.Separator jSeparator1;
     private javax.swing.JButton loginBtn;
     private javax.swing.JLabel logoLabel;
     private javax.swing.JPopupMenu popupMenu;
     private javax.swing.JLabel timeLabel;
     private javax.swing.JMenuItem uploadBG;
-    private javax.swing.JMenuItem viewPlayer;
     // End of variables declaration//GEN-END:variables
 }
