@@ -93,21 +93,6 @@
             </MenuItem>
           </SubComponents>
         </Menu>
-        <Menu class="javax.swing.JMenu" name="about">
-          <Properties>
-            <Property name="text" type="java.lang.String" value="About"/>
-          </Properties>
-          <Events>
-            <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="aboutActionPerformed"/>
-          </Events>
-          <SubComponents>
-            <MenuItem class="javax.swing.JMenuItem" name="aboutUs">
-              <Properties>
-                <Property name="text" type="java.lang.String" value="About Us"/>
-              </Properties>
-            </MenuItem>
-          </SubComponents>
-        </Menu>
       </SubComponents>
     </Menu>
   </NonVisualComponents>

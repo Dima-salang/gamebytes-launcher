@@ -234,8 +234,6 @@ public class Launcher extends javax.swing.JFrame {
         highScores = new javax.swing.JMenu();
         game1_hs = new javax.swing.JMenuItem();
         game2_hs = new javax.swing.JMenuItem();
-        about = new javax.swing.JMenu();
-        aboutUs = new javax.swing.JMenuItem();
 
         changeBG.setText("Change Background");
 
@@ -327,18 +325,6 @@ public class Launcher extends javax.swing.JFrame {
         highScores.add(game2_hs);
 
         jMenuBar1.add(highScores);
-
-        about.setText("About");
-        about.addActionListener(new java.awt.event.ActionListener() {
-            public void actionPerformed(java.awt.event.ActionEvent evt) {
-                aboutActionPerformed(evt);
-            }
-        });
-
-        aboutUs.setText("About Us");
-        about.add(aboutUs);
-
-        jMenuBar1.add(about);
 
         setJMenuBar(jMenuBar1);
 
@@ -465,10 +451,6 @@ public class Launcher extends javax.swing.JFrame {
         }
     }//GEN-LAST:event_game2_hsActionPerformed
 
-    private void aboutActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_aboutActionPerformed
-        
-    }//GEN-LAST:event_aboutActionPerformed
-
     /**
      * @param args the command line arguments
      */
@@ -505,8 +487,6 @@ public class Launcher extends javax.swing.JFrame {
     }
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
-    private javax.swing.JMenu about;
-    private javax.swing.JMenuItem aboutUs;
     private javax.swing.JLabel accountDetailLabel;
     private javax.swing.JMenu changeBG;
     private javax.swing.JLabel dateLabel;
